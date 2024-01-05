@@ -49,3 +49,43 @@ git clone
 #pull changes from repo
 git pull
 
+#Create a new branch
+git branch test
+
+#Create a branch and checkout
+git checkout -b test
+
+#change branch
+git checkout test
+
+#move back in time to various commit
+git checkout commitID
+
+
+#add a tag
+git tag -a v1.1 commitID -m "Message for this commit"
+
+#revert changes - works only on modified file not new files
+git restore <filename>
+git checkout <filename>
+
+
+#revert changes from staging area to working directory (2 step)
+git restore --stage <filename>
+git restore <filename>
+
+#revert changes from local repo to Working directory (2 step)
+git reset HEAD~ or git reset HEAD^
+git restore <filename>
+
+#No direct way to revert changes from Remote Repo
+
+#Use .gitignore to add files that is not required for Staging or Commit
+#Use Wildcard *.txt *.md
+
+#Skip Add .
+git commit -am "Used to add and commit modified files in One step"
+
+#git rebase to combine multiple commits to 1 commit ~ to specify number to club
+#cannot rebase 1st commit
+git rebase -i HEAD~2
